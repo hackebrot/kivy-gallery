@@ -1,0 +1,15 @@
+#:kivy 1.8.0
+
+ScreenManager:
+    OverviewScreen:
+
+<BaseScreen@Screen>:
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'center'
+
+<OverviewScreen@BaseScreen>:
+    name: 'Overview'
+    Label:
+        text: "Hello world!"
+
