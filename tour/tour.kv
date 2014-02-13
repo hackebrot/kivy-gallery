@@ -7,9 +7,45 @@ ScreenManager:
     AnchorLayout:
         anchor_x: 'left'
         anchor_y: 'center'
+        SideBar:
 
 <OverviewScreen@BaseScreen>:
     name: 'Overview'
     Label:
         text: "Hello world!"
+
+<SideBar@FloatLayout>:
+    SideBarMenu:
+        width: lbl.x
+    SideBarLabel:
+        id: lbl
+
+<SideBarMenu@BoxLayout>:
+    orientation: 'vertical'
+    size_hint_x: None
+    canvas.before:
+        Color:
+            rgba: 0.3, 0.3, 0.3, 0.8
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    Label:
+        text: "Menu"
+
+<SideBarLabel>:
+    size_hint_x: None
+    width: 40
+    canvas.before:
+        Color:
+            rgba: 0.3, 0.3, 0.3, 1
+        Rectangle:
+            pos: self.pos
+            size: self.size
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1
+        Rectangle:
+            pos: self.pos
+            size: 1, self.height
+
+
 
