@@ -7,18 +7,16 @@ ScreenManager:
     AnchorLayout:
         anchor_x: 'left'
         anchor_y: 'center'
-        SideBar:
+    FloatLayout:
+        SideBarMenu:
+            width: lbl.x
+        SideBarLabel:
+            id: lbl
 
 <OverviewScreen@BaseScreen>:
     name: 'Overview'
     Label:
         text: "Hello world!"
-
-<SideBar@FloatLayout>:
-    SideBarMenu:
-        width: lbl.x
-    SideBarLabel:
-        id: lbl
 
 <SideBarMenu>:
     orientation: 'vertical'
