@@ -1,7 +1,15 @@
 from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.button import Button
 
 
 class SideBarMenu(BoxLayout):
-    """Menu used in every screen for global actions.
+    """Menu providing buttons for switching the screens.
+
+    Since widgets cannot be assigned to multiple parents,
+    each screen has its own menu.
     """
-    pass
+
+    def setupAction(self, title, action):
+        """Adds a button based on the given data.
+        """
+        self.add_widget(Button(text=title, on_press=action))

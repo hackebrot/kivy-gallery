@@ -1,22 +1,32 @@
 #:kivy 1.8.0
 
-ScreenManager:
-    OverviewScreen:
-
-<BaseScreen@Screen>:
+<BaseScreen>:
+    menu: menu
+    lbl: lbl
     AnchorLayout:
         anchor_x: 'left'
         anchor_y: 'center'
     FloatLayout:
         SideBarMenu:
+            id: menu
             width: lbl.x
         SideBarLabel:
             id: lbl
 
-<OverviewScreen@BaseScreen>:
+<Overview>:
     name: 'Overview'
     Label:
-        text: "Hello world!"
+        text: "Test Overview"
+
+<Stage>:
+    name: 'Stage'
+    Label:
+        text: "Test Stage"
+
+<Explorer>:
+    name: 'Explorer'
+    Label:
+        text: "Test Explorer"
 
 <SideBarMenu>:
     orientation: 'vertical'
@@ -27,8 +37,6 @@ ScreenManager:
         Rectangle:
             pos: self.pos
             size: self.size
-    Label:
-        text: "Menu"
 
 <SideBarLabel>:
     size_hint_x: None

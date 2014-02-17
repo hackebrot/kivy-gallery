@@ -1,6 +1,7 @@
 from kivy.app import App
+from tour.screens import ScreenMgr
 
 
 class TourApp(App):
     def build(self):
-        return self.root
+        return ScreenMgr()
