@@ -1,5 +1,11 @@
 *.py[cod]
 
+# Config
+*.ini
+
+# media
+media
+
 # vim
 *.swo
 *.swp
