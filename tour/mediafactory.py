@@ -1,9 +1,13 @@
 import json
 from os import path
+from collections import namedtuple
 from operator import itemgetter
 
 from kivy.logger import Logger
 from kivy.uix.image import Image
+
+
+MediaObject = namedtuple("MediaObject", ["name", "widget", "thumbnail"])
 
 
 def readPlaylist(fileName):
@@ -25,7 +29,9 @@ def loadMedia(mediaDir, playlistFile):
 
     getData = itemgetter('type', 'name', 'source', 'thumbnail')
     for mType, name, src, thumb in map(getData, playlist):
-        pass
+        thumb = Image(source=path.join(mediaDir, thumb))
+        widget = createWidget(mType, path.join(mediaDir, src))
+        tmp = MediaObject(name, widget, thumb)
     
     media = []
     return media
@@ -34,4 +40,4 @@ def loadMedia(mediaDir, playlistFile):
 def createWidget(widgetType, widgetData):
     """Create a widget based on the given data.
     """
-    return []
+    return None
