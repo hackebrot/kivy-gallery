@@ -1,7 +1,6 @@
-from os import path
 from kivy.app import App
 from tour.screens import ScreenMgr
-from tour.mediafactory import createWidgets
+from tour.mediafactory import loadMedia
 
 
 class TourApp(App):
@@ -14,7 +13,6 @@ class TourApp(App):
         mediaDir = self.config.get('media', 'dir')
         playlistFile = self.config.get('media', 'playlist')
 
-        data = (mediaDir, path.join(mediaDir, playlistFile))
-        widgets = createWidgets(*data)
+        widgets = loadMedia(mediaDir, playlistFile)
 
         return ScreenMgr()
