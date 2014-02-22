@@ -1,4 +1,6 @@
 from functools import partial
+
+from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.properties import ObjectProperty
 
@@ -8,9 +10,9 @@ class ScreenMgr(ScreenManager):
 
     def __init__(self):
         super(ScreenMgr, self).__init__()
-        self.add_widget(Overview())
-        self.add_widget(Stage())
-        self.add_widget(Explorer())
+        self.add_widget(SideBarScreen("Overview", Label(text="Overview")))
+        self.add_widget(SideBarScreen("Stage", Label(text="Stage")))
+        self.add_widget(SideBarScreen("Explorer", Label(text="Explorer")))
 
         for scrn in self.screens:
             scrn.setupActions((self.setCurrentScreen, s) for s in self.screens)
@@ -27,6 +29,11 @@ class SideBarScreen(Screen):
     """
     menu = ObjectProperty()
     lbl = ObjectProperty()
+    content = ObjectProperty()
+
+    def __init__(self, name, content):
+        super(SideBarScreen, self).__init__(name=name)
+        self.content.add_widget(content)
 
     def on_pre_leave(self):
         """Assures that the menu is reset on a screen transition.
@@ -39,20 +46,4 @@ class SideBarScreen(Screen):
         """
         for action, screen in actions:
             self.menu.setupAction(screen.name, partial(action, screen))
-
-
-class Overview(SideBarScreen):
-    """BaseScreen showing all media widgets available in the app.
-    """
-    pass
-
-class Stage(SideBarScreen):
-    """BaseScreen for viewing a single media item at a time.
-    """
-    pass
-
-class Explorer(SideBarScreen):
-    """BaseScreen showing previously displayed media items.
-    """
-    pass
 

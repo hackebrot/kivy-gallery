@@ -3,30 +3,15 @@
 <SideBarScreen>:
     menu: menu
     lbl: lbl
-    AnchorLayout:
-        anchor_x: 'left'
-        anchor_y: 'center'
+    content: content
+    FloatLayout:
+        id: content
     FloatLayout:
         SideBarMenu:
             id: menu
             width: lbl.x
         SideBarLabel:
             id: lbl
-
-<Overview>:
-    name: 'Overview'
-    Label:
-        text: "Test Overview"
-
-<Stage>:
-    name: 'Stage'
-    Label:
-        text: "Test Stage"
-
-<Explorer>:
-    name: 'Explorer'
-    Label:
-        text: "Test Explorer"
 
 <SideBarMenu>:
     orientation: 'vertical'
