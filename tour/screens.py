@@ -16,8 +16,8 @@ class ScreenMgr(ScreenManager):
             scrn.setupActions((self.setCurrentScreen, s) for s in self.screens)
 
     def setCurrentScreen(self, screen, *args):
-        """Resets the current's screen SideBarLabel and displays the given screen.
-        Uses args in definition for the handling the incoming btn instance.
+        """Displays the given screen. Uses args in definition to
+        handle the incoming btn instance.
         """
         self.current = screen.name
 
@@ -29,13 +29,13 @@ class BaseScreen(Screen):
     lbl = ObjectProperty()
 
     def on_pre_leave(self):
-        """Assures that the menu is handled properly on a screen transition.
+        """Assures that the menu is reset on a screen transition.
         """
         super(BaseScreen, self).on_pre_leave()
         self.lbl.collapse()
 
     def setupActions(self, actions):
-        """Connects its menu with the given actions.
+        """Connects the menu with the given actions.
         """
         for action, screen in actions:
             self.menu.setupAction(screen.name, partial(action, screen))
