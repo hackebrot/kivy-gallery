@@ -5,6 +5,9 @@ from operator import itemgetter
 
 from kivy.logger import Logger
 from kivy.uix.image import Image
+from tour.scene import Scene
+from tour.walkaround import Walkaround
+from tour.stills import Stills
 
 
 MediaObject = namedtuple("MediaObject", ["name", "widget", "thumbnail"])
@@ -28,16 +31,18 @@ def loadMedia(mediaDir, playlistFile):
         return []
 
     getData = itemgetter('type', 'name', 'source', 'thumbnail')
+
+    media = []
     for mType, name, src, thumb in map(getData, playlist):
         thumb = Image(source=path.join(mediaDir, thumb))
         widget = createWidget(mType, path.join(mediaDir, src))
-        tmp = MediaObject(name, widget, thumb)
-    
-    media = []
+        media.append(MediaObject(name, widget, thumb))
     return media
 
+
+widgetClasses = {'Walkaround': Walkaround, 'Stills': Stills, 'Scene': Scene}
 
 def createWidget(widgetType, widgetData):
     """Create a widget based on the given data.
     """
-    return None
+    return widgetClasses.get(widgetType)(widgetData)
