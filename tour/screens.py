@@ -22,7 +22,7 @@ class ScreenMgr(ScreenManager):
         self.current = screen.name
 
 
-class BaseScreen(Screen):
+class SideBarScreen(Screen):
     """Screen containing a SideBar in addition to its featured widget.
     """
     menu = ObjectProperty()
@@ -31,7 +31,7 @@ class BaseScreen(Screen):
     def on_pre_leave(self):
         """Assures that the menu is reset on a screen transition.
         """
-        super(BaseScreen, self).on_pre_leave()
+        super(SideBarScreen, self).on_pre_leave()
         self.lbl.collapse()
 
     def setupActions(self, actions):
@@ -41,17 +41,17 @@ class BaseScreen(Screen):
             self.menu.setupAction(screen.name, partial(action, screen))
 
 
-class Overview(BaseScreen):
+class Overview(SideBarScreen):
     """BaseScreen showing all media widgets available in the app.
     """
     pass
 
-class Stage(BaseScreen):
+class Stage(SideBarScreen):
     """BaseScreen for viewing a single media item at a time.
     """
     pass
 
-class Explorer(BaseScreen):
+class Explorer(SideBarScreen):
     """BaseScreen showing previously displayed media items.
     """
     pass
