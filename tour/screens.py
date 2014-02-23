@@ -57,11 +57,16 @@ class Overview(ScrollView):
     def __init__(self, media):
         super(Overview, self).__init__()
         for mediaObject in media:
-            item = OverviewItem(text=mediaObject.name)
+            item = OverviewItem(mediaObject.name, mediaObject.thumbnail)
             self.content.add_widget(item)
+
 
 class OverviewItem(Button):
     """Button representing a mediaObject in the overview
     and displaying its name and thumbnail respectively.
     """
-    pass
+    def __init__(self, name, thumbnail):
+        super(OverviewItem, self).__init__()
+        self.text = name
+        self.background_normal = thumbnail
+

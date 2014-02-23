@@ -4,7 +4,6 @@ from collections import namedtuple
 from operator import itemgetter
 
 from kivy.logger import Logger
-from kivy.uix.image import Image
 from tour.scene import Scene
 from tour.walkaround import Walkaround
 from tour.stills import Stills
@@ -34,7 +33,7 @@ def loadMedia(mediaDir, playlistFile):
 
     media = []
     for mType, name, src, thumb in map(getData, playlist):
-        thumb = Image(source=path.join(mediaDir, thumb))
+        thumb = path.join(mediaDir, thumb)
         widget = createWidget(mType, path.join(mediaDir, src))
         media.append(MediaObject(name, widget, thumb))
     return media
