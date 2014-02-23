@@ -1,5 +1,6 @@
 from functools import partial
 
+from kivy.logger import Logger
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
@@ -7,22 +8,35 @@ from kivy.properties import ObjectProperty
 
 
 class ScreenMgr(ScreenManager):
+    """Custom ScreenManager providing callbacks for switching screens.
+    """
     transition = FadeTransition()
 
     def __init__(self, media):
         super(ScreenMgr, self).__init__()
-        self.add_widget(SideBarScreen("Overview", Overview(media)))
-        self.add_widget(SideBarScreen("Stage", Button(text="Stage")))
-        self.add_widget(SideBarScreen("Explorer", Button(text="Explorer")))
+        self.overview = SideBarScreen("Overview", Overview(media, self.showMediaObject))
+        self.stage = SideBarScreen("Stage", Button(text="Stage"))
+        self.explorer = SideBarScreen("Explorer", Button(text="Explorer"))
+        self.addScreens(self.overview, self.stage, self.explorer)
 
-        for scrn in self.screens:
-            scrn.setupActions((self.setCurrentScreen, s) for s in self.screens)
+    def addScreens(self, *screens):
+        """Adds the given screens and populates the sidebars respectively.
+        """
+        for scrn in screens:
+            self.add_widget(scrn)
+            scrn.setupActions((self.setCurrentScreen, s) for s in screens)
 
     def setCurrentScreen(self, screen, *args):
         """Displays the given screen. Uses args in definition to
         handle the incoming btn instance.
         """
         self.current = screen.name
+
+    def showMediaObject(self, mediaObj, *args):
+        """Callback for any buttons and a like requesting a mediaObject to be shown.
+        """
+        Logger.info("Requested MediaObject {0}".format(mediaObj))
+        self.setCurrentScreen(self.stage)
 
 
 class SideBarScreen(Screen):
@@ -54,10 +68,11 @@ class Overview(ScrollView):
     """
     content = ObjectProperty()
 
-    def __init__(self, media):
+    def __init__(self, media, action):
         super(Overview, self).__init__()
         for mediaObject in media:
             item = OverviewItem(mediaObject.name, mediaObject.thumbnail)
+            item.bind(on_press=partial(action, mediaObject))
             self.content.add_widget(item)
 
 
