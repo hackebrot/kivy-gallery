@@ -26,4 +26,4 @@ class TourApp(App):
 
         #Store the app's window size for straightforward references
         self.size = appWidth, appHeight  
-        return ScreenMgr()
+        return ScreenMgr(media)

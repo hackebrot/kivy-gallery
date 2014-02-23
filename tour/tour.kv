@@ -38,5 +38,21 @@
             pos: self.pos
             size: 1, self.height
 
+<Overview>:
+    content: content
+    do_scroll_y: False
+    size_hint: None, None
+    size: app.size
+    GridLayout:
+        id: content
+        rows: 1
+        size_hint_x: None
+        width: self.minimum_width
 
+<OverviewItem>:
+    size_hint_x: None
+    width: 200
+    background_down: self.background_normal
+    text_size: None, self.height * 0.8
+    valign: 'bottom'
 

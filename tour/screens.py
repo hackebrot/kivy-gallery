@@ -1,6 +1,7 @@
 from functools import partial
 
-from kivy.uix.label import Label
+from kivy.uix.scrollview import ScrollView
+from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.properties import ObjectProperty
 
@@ -8,11 +9,11 @@ from kivy.properties import ObjectProperty
 class ScreenMgr(ScreenManager):
     transition = FadeTransition()
 
-    def __init__(self):
+    def __init__(self, media):
         super(ScreenMgr, self).__init__()
-        self.add_widget(SideBarScreen("Overview", Label(text="Overview")))
-        self.add_widget(SideBarScreen("Stage", Label(text="Stage")))
-        self.add_widget(SideBarScreen("Explorer", Label(text="Explorer")))
+        self.add_widget(SideBarScreen("Overview", Overview(media)))
+        self.add_widget(SideBarScreen("Stage", Button(text="Stage")))
+        self.add_widget(SideBarScreen("Explorer", Button(text="Explorer")))
 
         for scrn in self.screens:
             scrn.setupActions((self.setCurrentScreen, s) for s in self.screens)
@@ -47,3 +48,20 @@ class SideBarScreen(Screen):
         for action, screen in actions:
             self.menu.setupAction(screen.name, partial(action, screen))
 
+
+class Overview(ScrollView):
+    """ScrollView showing all media widgets available in the app.
+    """
+    content = ObjectProperty()
+
+    def __init__(self, media):
+        super(Overview, self).__init__()
+        for mediaObject in media:
+            item = OverviewItem(text=mediaObject.name)
+            self.content.add_widget(item)
+
+class OverviewItem(Button):
+    """Button representing a mediaObject in the overview
+    and displaying its name and thumbnail respectively.
+    """
+    pass
