@@ -25,5 +25,6 @@ class TourApp(App):
         media = loadMedia(mediaDir, playlistFile)
 
         #Store the app's window size for straightforward references
-        self.size = appWidth, appHeight  
+        self.size = self.width, self.height = appWidth, appHeight  
+
         return ScreenMgr(media)
