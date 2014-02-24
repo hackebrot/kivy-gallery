@@ -14,7 +14,7 @@ class ScreenMgr(ScreenManager):
 
     def __init__(self, media):
         super(ScreenMgr, self).__init__()
-        self.overview = SideBarScreen("Overview", Overview(media, self.showMediaObject))
+        self.overview = SideBarScreen("Overview", Overview(media))
         self.stage = SideBarScreen("Stage", Button(text="Stage"))
         self.explorer = SideBarScreen("Explorer", Button(text="Explorer"))
         self.addScreens(self.overview, self.stage, self.explorer)

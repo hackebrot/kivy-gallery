@@ -8,11 +8,14 @@ Config.set('graphics', 'height', appHeight)
 #https://groups.google.com/forum/#!topic/kivy-users/TR7UycgcLpQ
 
 from kivy.app import App
+from kivy.properties import ObjectProperty
 from tour.screens import ScreenMgr
 from tour.mediafactory import loadMedia
 
 
 class TourApp(App):
+    mgr = ObjectProperty()
+
     def build_config(self, config):
         config.adddefaultsection('media')
         config.setdefault('media', 'dir', 'media')
@@ -27,4 +30,5 @@ class TourApp(App):
         #Store the app's window size for straightforward references
         self.size = self.width, self.height = appWidth, appHeight  
 
-        return ScreenMgr(media)
+        self.mgr = ScreenMgr(media)
+        return self.mgr
