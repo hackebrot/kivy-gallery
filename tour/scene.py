@@ -6,6 +6,8 @@ class Scene(Video):
     """
     def __init__(self, videoFile):
         super(Scene, self).__init__(source=videoFile)
+        self.state = 'play'
+        self.eos = 'loop'
 
     def toggleState(self):
         self.state = 'pause' if self.state == 'play' else 'play'
