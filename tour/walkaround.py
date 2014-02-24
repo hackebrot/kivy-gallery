@@ -32,6 +32,7 @@ class Walkaround(FloatLayout):
     def on_touch_move(self, touch):
         """Change the image on user interaction based on the movements speed.
         """
-        step = int(touch.dx / 5)
-        self.updateImage((self.current - step) % len(self.images))
+        if self.collide_point(*touch.pos):
+            step = int(touch.dx / 5)
+            self.updateImage((self.current - step) % len(self.images))
 
