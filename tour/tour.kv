@@ -11,13 +11,16 @@
     FloatLayout:
         SideBarMenu:
             id: menu
-            width: lbl.x
+            height: root.top - lbl.y
+            y: lbl.top
         SideBarLabel:
             id: lbl
+            top: root.top
 
 <SideBarMenu>:
-    orientation: 'vertical'
-    size_hint_x: None
+    orientation: 'horizontal'
+    size_hint_y: None
+
     canvas.before:
         Color:
             rgba: 0.3, 0.3, 0.3, 0.8
@@ -26,8 +29,8 @@
             size: self.size
 
 <SideBarLabel>:
-    size_hint_x: None
-    width: win.Window.width * 0.04
+    size_hint_y: None
+    height: win.Window.height * 0.04
     canvas.before:
         Color:
             rgba: 0.3, 0.3, 0.3, 1
@@ -38,7 +41,7 @@
             rgba: 0.5, 0.5, 0.5, 1
         Rectangle:
             pos: self.pos
-            size: 1, self.height
+            size: self.width, 1
 
 <Overview>:
     content: content
