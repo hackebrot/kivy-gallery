@@ -5,6 +5,7 @@ from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.properties import ObjectProperty
 from tour.overview import Overview
+from tour.stage import Stage
 
 
 class ScreenMgr(ScreenManager):
@@ -14,10 +15,13 @@ class ScreenMgr(ScreenManager):
 
     def __init__(self, media):
         super(ScreenMgr, self).__init__()
-        self.overview = SideBarScreen("Overview", Overview(media))
-        self.stage = SideBarScreen("Stage", Button(text="Stage"))
-        self.explorer = SideBarScreen("Explorer", Button(text="Explorer"))
-        self.addScreens(self.overview, self.stage, self.explorer)
+        self.overviewScreen = SideBarScreen("Overview", Overview(media))
+        self.explorerScreen = SideBarScreen("Explorer", Button(text="Explorer"))
+
+        self.stage = Stage(media)
+        self.stageScreen = SideBarScreen("Stage", self.stage)
+
+        self.addScreens(self.overviewScreen, self.stageScreen, self.explorerScreen)
 
     def addScreens(self, *screens):
         """Adds the given screens and populates the sidebars respectively.
@@ -33,10 +37,12 @@ class ScreenMgr(ScreenManager):
         self.current = screen.name
 
     def showMediaObject(self, mediaObj, *args):
-        """Callback for any buttons and a like requesting a mediaObject to be shown.
+        """Callback for any buttons and a like requesting a mediaObject
+        to be shown on the stage.
         """
         Logger.info("Requested MediaObject {0}".format(mediaObj))
-        self.setCurrentScreen(self.stage)
+        self.setCurrentScreen(self.stageScreen)
+        self.stage.show(mediaObj)
 
 
 class SideBarScreen(Screen):
