@@ -26,4 +26,4 @@ class ExplorerItem(Scatter):
         self.mediaObject = mediaObject
         self.image.source = self.mediaObject.thumbnail
         self.rotation = 10 * randint(-2, 2)
-        self.pos = (self.x + randint(-80, 80), self.y + randint(-40 , 40))
+        self.pos = (self.x + randint(-200, 200), self.y + randint(-150 , 150))
