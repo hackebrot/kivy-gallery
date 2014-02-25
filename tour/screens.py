@@ -6,6 +6,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.properties import ObjectProperty
 from tour.overview import Overview
 from tour.stage import Stage
+from tour.explorer import Explorer
 
 
 class ScreenMgr(ScreenManager):
@@ -16,7 +17,7 @@ class ScreenMgr(ScreenManager):
     def __init__(self, media):
         super(ScreenMgr, self).__init__()
         self.overviewScreen = SideBarScreen("Overview", Overview(media))
-        self.explorerScreen = SideBarScreen("Explorer", Button(text="Explorer"))
+        self.explorerScreen = SideBarScreen("Explorer", Explorer(media))
 
         self.stage = Stage(media)
         self.stageScreen = SideBarScreen("Stage", self.stage)

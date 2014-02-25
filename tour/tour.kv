@@ -1,4 +1,6 @@
 #:kivy 1.8.0
+#:import win kivy.core.window
+
 
 <SideBarScreen>:
     menu: menu
@@ -25,7 +27,7 @@
 
 <SideBarLabel>:
     size_hint_x: None
-    width: app.width * 0.04
+    width: win.Window.width * 0.04
     canvas.before:
         Color:
             rgba: 0.3, 0.3, 0.3, 1
@@ -46,7 +48,6 @@
     GridLayout:
         id: content
         rows: 1
-        padding: app.width * 0.01
         spacing: app.width * 0.01
         size_hint_x: None
         width: self.minimum_width
@@ -64,3 +65,20 @@
     anchor_y: 'bottom'
     Carousel:
         id: content
+
+<ExplorerItem>:
+    screenMgr: app.mgr
+    image: image
+    on_size: self.center = win.Window.center
+    size: image.size
+    size_hint: None, None
+
+    Image:
+        id: image
+        size: 400, 400 / self.image_ratio
+        canvas.before:
+            Color:
+                rgba: 0.4, 0.4, 0.4, 1
+            Rectangle:
+                pos: (-2, -2)
+                size: (root.width + 4, root.height + 4)
