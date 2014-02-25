@@ -1,9 +1,8 @@
 import kivy
 kivy.require('1.8.0')
 from kivy.config import Config
-appWidth, appHeight = 960, 540
-Config.set('graphics', 'width', appWidth)
-Config.set('graphics', 'height', appHeight)
+Config.set('graphics', 'width', 960)
+Config.set('graphics', 'height', 540)
 #Use this to set the size of the app as suggested at:
 #https://groups.google.com/forum/#!topic/kivy-users/TR7UycgcLpQ
 
@@ -26,9 +25,6 @@ class TourApp(App):
         playlistFile = self.config.get('media', 'playlist')
 
         media = loadMedia(mediaDir, playlistFile)
-
-        #Store the app's window size for straightforward references
-        self.size = self.width, self.height = appWidth, appHeight  
 
         self.mgr = ScreenMgr(media)
         return self.mgr

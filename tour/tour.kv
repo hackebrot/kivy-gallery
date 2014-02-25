@@ -44,18 +44,18 @@
     content: content
     do_scroll_y: False
     size_hint: None, None
-    size: app.size
+    size: win.Window.size
     GridLayout:
         id: content
         rows: 1
-        spacing: app.width * 0.01
+        spacing: win.Window.width * 0.01
         size_hint_x: None
         width: self.minimum_width
 
 <OverviewItem>:
     screenMgr: app.mgr
     size_hint_x: None
-    width: app.width * 0.25
+    width: win.Window.width * 0.25
     background_down: self.background_normal
     text_size: None, self.height * 0.8
     valign: 'bottom'
