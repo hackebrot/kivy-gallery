@@ -12,4 +12,8 @@ class SideBarMenu(BoxLayout):
     def setupAction(self, title, action):
         """Adds a button based on the given data.
         """
-        self.add_widget(Button(text=title, on_press=action))
+        self.add_widget(SideBarButton(text=title, on_press=action))
+                               
+
+class SideBarButton(Button):
+    pass
