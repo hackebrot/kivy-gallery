@@ -6,10 +6,10 @@ from operator import itemgetter
 from kivy.logger import Logger
 from tour.scene import Scene
 from tour.walkaround import Walkaround
-from tour.stills import Stills
+from tour.still import Still
 
 
-MediaObject = namedtuple("MediaObject", ["name", "widget", "thumbnail"])
+MediaObject = namedtuple("MediaObject", ["name", "widget", "thumbnail", "featured"])
 
 
 def readPlaylist(fileName):
@@ -29,17 +29,18 @@ def loadMedia(mediaDir, playlistFile):
         Logger.error(msg.format(e))
         return []
 
-    getData = itemgetter('type', 'name', 'source', 'thumbnail')
+    getData = itemgetter('type', 'name', 'source', 'thumbnail', 'featured')
 
     media = []
-    for mType, name, src, thumb in map(getData, playlist):
+    for mType, name, src, thumb, feat in map(getData, playlist):
         thumb = path.join(mediaDir, thumb)
+        feat = path.join(mediaDir, feat)
         widget = createWidget(mType, path.join(mediaDir, src))
-        media.append(MediaObject(name, widget, thumb))
+        media.append(MediaObject(name, widget, thumb, feat))
     return media
 
 
-widgetClasses = {'Walkaround': Walkaround, 'Stills': Stills, 'Scene': Scene}
+widgetClasses = {'Walkaround': Walkaround, 'Still': Still, 'Scene': Scene}
 
 def createWidget(widgetType, widgetData):
     """Create a widget based on the given data.
