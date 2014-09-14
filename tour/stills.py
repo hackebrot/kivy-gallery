@@ -7,7 +7,7 @@ from kivy.logger import Logger
 class Stills(Image):
     """Animated image showing a number of stills.
     """
-    delayRange = cycle(pow(2, _) for _ in xrange(2, -1, -1))
+    delayRange = cycle(pow(2, _) for _ in range(2, -1, -1))
 
     def __init__(self, zipFile):
         super(Stills, self).__init__(source=zipFile)
