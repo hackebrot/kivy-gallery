@@ -3,9 +3,6 @@
 # Config
 *.ini
 
-# media
-media
-
 # vim
 *.swo
 *.swp

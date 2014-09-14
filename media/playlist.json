@@ -1,0 +1,37 @@
+[
+  {
+    "source": "western_001.png", 
+    "featured": "western_001.png", 
+    "type": "Still", 
+    "name": "", 
+    "thumbnail": "western_001_small.png"
+  }, 
+  {
+    "source": "western_002.png", 
+    "featured": "western_002.png", 
+    "type": "Still", 
+    "name": "", 
+    "thumbnail": "western_002_small.png"
+  }, 
+  {
+    "source": "western_003.png", 
+    "featured": "western_003.png", 
+    "type": "Still", 
+    "name": "", 
+    "thumbnail": "western_003_small.png"
+  }, 
+  {
+    "source": "western_004.png", 
+    "featured": "western_004.png", 
+    "type": "Still", 
+    "name": "", 
+    "thumbnail": "western_004_small.png"
+  }, 
+  {
+    "source": "Vertex", 
+    "featured": "Vertex/Vertex_0100.jpg", 
+    "type": "Walkaround", 
+    "name": "", 
+    "thumbnail": "Vertex_0100_small.jpg"
+  }
+]
