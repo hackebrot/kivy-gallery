@@ -28,6 +28,7 @@ class TourApp(App):
         playlistFile = self.config.get('media', 'playlist')
         musicFile = self.config.get('media', 'music')
 
+        mediaDir = path.realpath(mediaDir)
         sound = SoundLoader.load(path.join(mediaDir, musicFile))
         sound.loop = True
         sound.play()
