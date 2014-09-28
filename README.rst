@@ -9,10 +9,19 @@ Gallery like app for presenting various media-types such as images or walkaround
 Features
 --------
 
+Menu
+~~~~
+
+Every screen features a menu, you can slide down by touching the black bar at the top.
+Tapping on one of the buttons will show the corresponding screen.
+
+.. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/menu.png
+
+
 Overview Screen
 ~~~~~~~~~~~~~~~
 
-Slide to the left and right to browse the contents and tap on an item to view it
+Slide to the left and right to browse the contents and tap on an item to view it.
 
 .. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/overview.png
 
