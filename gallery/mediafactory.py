@@ -4,9 +4,9 @@ from collections import namedtuple
 from operator import itemgetter
 
 from kivy.logger import Logger
-from tour.scene import Scene
-from tour.walkaround import Walkaround
-from tour.still import Still
+from gallery.scene import Scene
+from gallery.walkaround import Walkaround
+from gallery.still import Still
 
 
 MediaObject = namedtuple("MediaObject", ["name", "widget", "thumbnail", "featured"])

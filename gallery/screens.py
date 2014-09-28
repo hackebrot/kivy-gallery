@@ -4,9 +4,9 @@ from kivy.logger import Logger
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.properties import ObjectProperty
-from tour.overview import Overview
-from tour.stage import Stage
-from tour.explorer import Explorer
+from gallery.overview import Overview
+from gallery.stage import Stage
+from gallery.explorer import Explorer
 
 
 class ScreenMgr(ScreenManager):

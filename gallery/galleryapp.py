@@ -10,11 +10,11 @@ from os import path
 from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.core.audio import SoundLoader
-from tour.screens import ScreenMgr
-from tour.mediafactory import loadMedia
+from gallery.screens import ScreenMgr
+from gallery.mediafactory import loadMedia
 
 
-class TourApp(App):
+class GalleryApp(App):
     mgr = ObjectProperty()
 
     def build_config(self, config):

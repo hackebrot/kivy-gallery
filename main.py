@@ -4,12 +4,12 @@
 import kivy
 kivy.require('1.8.0')
 
-from tour.tourapp import TourApp
-from tour.sidebarlabel import SideBarLabel
-from tour.sidebarmenu import SideBarMenu
-from tour.screens import ScreenMgr
+from gallery.galleryapp import GalleryApp
+from gallery.sidebarlabel import SideBarLabel
+from gallery.sidebarmenu import SideBarMenu
+from gallery.screens import ScreenMgr
 
 
 if __name__ in ('__main__', '__android__'):
-    TourApp().run()
+    GalleryApp().run()
 
