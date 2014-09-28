@@ -9,7 +9,12 @@ Gallery like app for presenting various media-types such as images or walkaround
 Features
 --------
 
-* TODO
+Overview Screen
+~~~~~~~~~~~~~~~
+
+Slide to the left and right to browse the contents and tap on an item to view it
+
+.. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/overview.png
 
 Usage
 -----
