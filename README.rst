@@ -21,9 +21,16 @@ Tapping on one of the buttons will show the corresponding screen.
 Overview Screen
 ~~~~~~~~~~~~~~~
 
-Slide to the left and right to browse the contents and tap on an item to view it.
+Slide to the left or right to browse the contents and tap on an item to view it.
 
 .. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/overview.png
+
+Stage Screen
+~~~~~~~~~~~~~~~
+
+Displays a media item in fullscreen. Slide to the left or right to switch to a different one.
+
+.. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/stage.png
 
 Usage
 -----
