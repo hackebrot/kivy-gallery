@@ -21,7 +21,7 @@ Tapping on one of the buttons will show the corresponding screen.
 Overview Screen
 ~~~~~~~~~~~~~~~
 
-Slide to the left or right to browse the contents and tap on an item to view it.
+Slide to the left or right to browse the contents and tap on an item to display it on the stage.
 
 .. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/overview.png
 
