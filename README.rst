@@ -39,6 +39,13 @@ The 'walkaround' media type is a sequence of images you can play back, by holdin
 
 .. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/walkaround.png
 
+Explorer Screen
+~~~~~~~~~~~~~~~
+
+The explorer displays all media objects at one. You can freely transform them with multitouch gestures.
+
+.. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/explorer.png
+
 Usage
 -----
 
