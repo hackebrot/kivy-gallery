@@ -26,11 +26,18 @@ Slide to the left or right to browse the contents and tap on an item to view it.
 .. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/overview.png
 
 Stage Screen
-~~~~~~~~~~~~~~~
+~~~~~~~~~~~~
 
 Displays a media item in fullscreen. Slide to the left or right to switch to a different one.
 
 .. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/stage.png
+
+Walkaround
+~~~~~~~~~~
+
+The 'walkaround' media type is a sequence of images you can play back, by holding down and sliding to the left or right.
+
+.. image:: https://raw.githubusercontent.com/hackebrot/kivy-gallery/master/screenshots/walkaround.png
 
 Usage
 -----
