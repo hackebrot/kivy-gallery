@@ -52,7 +52,7 @@ Usage
 Launching the app
 ~~~~~~~~~~~~~~~~~
 
-Kivy-Gallery is using Kivy on Python 3::
+Kivy-Gallery is compatible Python 2 and Python 3::
 
     cd kivy-gallery
     python main.py
