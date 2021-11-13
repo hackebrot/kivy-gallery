@@ -2,6 +2,8 @@
 Kivy-Gallery
 ===============================
 
+**Please note that this project is no longer actively maintained.** 🚧
+
 Gallery like app for presenting various media-types such as images or walkarounds with the kivy framework.
 
 * GPL v2
